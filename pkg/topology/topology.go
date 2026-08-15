@@ -487,9 +487,9 @@ func getReplicaSetStatus(rs *appsv1.ReplicaSet) string {
 
 func StatusIcon(status string) string {
 	switch {
-	case status == "Running" || status == "Healthy" || status == "Active" || status == "Bound" || status == "Succeeded" || status == "Degraded":
+	case status == "Running" || status == "Healthy" || status == "Active" || status == "Bound" || status == "Succeeded":
 		return "🟢"
-	case status == "Pending" || status == "NoBackend":
+	case status == "Pending" || status == "Degraded" || status == "NoBackend":
 		return "🟡"
 	case status == "Failed" || status == "Unavailable" || status == "CrashLoopBackOff" ||
 		status == "ImagePullBackOff" || status == "OOMKilled" || status == "ErrImagePull":
